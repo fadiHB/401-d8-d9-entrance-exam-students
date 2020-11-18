@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../layout/head') %>
+    <title>Details</title>
+</head>
+<body>
+
+    <main>
+        <%- include('../layout/header') %>
+
+
+        <%= result.forEach ( obj => {  %>
+            <section>
+                <img src="<%= obj.image %>" alt="">
+                <h4><%= obj.patronus %></h4>
+                <p><%= obj.alive %></p>
+            </section>
+            
+            <form action="/update/<%= obj.id %>?_method=PUT" method="post">
+                <h1>Enter a new data for update if you like ...</h1>
+                <input type="text" placeholder="Enter a new patronus" name="patronus">
+                <input type="text" placeholder="Enter a new alive status" name="alive">
+                <input type="text" placeholder="paste the your url image here" name="image">
+                <button type="submit">update</button>
+            </form>
+
+            <form action="/delete/<%= obj.id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+
+
+        <%= })%>
+    </main>
+    <%- include('../layout/footer') %>    
+</body>
+</html>

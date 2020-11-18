@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../layout/head') %>
+    <title>my-characters</title>
+</head>
+<body>
+    <%- include('../layout/header') %>
+
+
+    <main>
+
+        <%= result.forEach ( obj => {  %>
+            <section>
+                <img src="<%= obj.image %>" alt="">
+                <h4><%= obj.patronus %></h4>
+                <p><%= obj.alive %></p>
+            </section>
+            <a href="/details/<%= obj.id %>"></a>
+        <%= })%>
+    </main>
+
+    <%- include('../layout/footer') %>
+</body>
+</html>

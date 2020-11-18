@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../layout/head') %>
+    <title>show</title>
+</head>
+<body>
+    <%- include('../layout/header') %>
+
+
+    <main>
+
+        <%= result.forEach ( obj => {  %>
+            <section>
+                <img src="<%= obj.image %>" alt="">
+                <h4><%= obj.patronus %></h4>
+                <p><%= obj.alive %></p>
+            </section>
+
+            <form action="/my-characters" method="post">
+                <input type="hidden" name="image" value="<%= obj.image %>">
+                <input type="hidden" name="patronus" value="<%= obj.patronus %>">
+                <input type="hidden" name="alive" value="<%= obj.alive %>">
+                <button type="submit">add to my characters</button>
+            </form>
+        
+        <%= })%>
+    </main>
+
+    <%- include('../layout/footer') %>
+    
+</body>
+</html>
